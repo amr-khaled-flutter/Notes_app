@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:notes_app/widget/add_note_bottonSheet.dart';
 
 class Customfloatingactionbotton extends StatelessWidget {
   @override
@@ -7,14 +8,17 @@ class Customfloatingactionbotton extends StatelessWidget {
       shape: CircleBorder(),
       backgroundColor: Color(0xff53EDBA),
       onPressed: () {
-        showBottomSheet(
+        showModalBottomSheet(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadiusGeometry.circular(16),
+          ),
           context: context,
           builder: (context) {
-            return Container();
+            return AddNoteBottonsheet();
           },
         );
       },
-      child: Icon(Icons.add, color: Colors.black, size: 25,),
+      child: Icon(Icons.add, color: Colors.black, size: 25),
     );
   }
 }
