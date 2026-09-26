@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 
 class Customtextfeild extends StatelessWidget {
   String hinttext;
+  int maxlines;
+
   EdgeInsetsGeometry? contentPadding;
-  Customtextfeild({this.contentPadding,required this.hinttext});
+  Customtextfeild({this.contentPadding,required this.hinttext, this.maxlines = 1});
   @override
   Widget build(BuildContext context) {
     return TextField(
-      maxLines: null,
+      style: TextStyle(
+        fontSize: 20,
+        color: Colors.white,
+      ),
+      maxLines: maxlines,
       decoration: InputDecoration(
         hintText: hinttext,
         hintStyle: TextStyle(
