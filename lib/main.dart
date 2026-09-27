@@ -4,7 +4,7 @@ import 'package:hive_flutter/adapters.dart';
 import 'package:notes_app/Views/EditView.dart';
 import 'package:notes_app/Views/NotesView.dart';
 import 'package:notes_app/const/constant.dart';
-import 'package:notes_app/cubit/addnotecubit/addnotecubit.dart';
+import 'package:notes_app/cubit/AddNoteCubit/AddNodeCubit.dart';
 import 'package:notes_app/models/NoteModel.dart';
 
 void main() async {
@@ -19,7 +19,9 @@ class Notes_app extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => Addnotecubit(),),
+        BlocProvider(
+          create: (context) => Addnodecubit()
+          ),
       ],
       child: MaterialApp(
         routes: {
