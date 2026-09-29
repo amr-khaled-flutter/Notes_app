@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 
 class Addbotton extends StatelessWidget {
   Function()? ontap;
-  Addbotton({required this.ontap});
+  final bool loading;
+  Addbotton({required this.ontap, this.loading = false});
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -15,7 +16,9 @@ class Addbotton extends StatelessWidget {
           color: Color(0xff4EDDC9),
         ),
         child: Center(
-          child: Text(
+          child: loading ? CircularProgressIndicator(
+            color: Colors.white,
+          ) :  Text(
             'Add',
             style: TextStyle(fontSize: 23, color: Colors.black),
           ),
