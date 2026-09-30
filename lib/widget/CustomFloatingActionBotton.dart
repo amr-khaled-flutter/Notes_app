@@ -9,6 +9,7 @@ class Customfloatingactionbotton extends StatelessWidget {
       backgroundColor: Color(0xff53EDBA),
       onPressed: () {
         showModalBottomSheet(
+          isScrollControlled: true,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadiusGeometry.circular(16),
           ),

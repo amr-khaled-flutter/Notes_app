@@ -16,28 +16,30 @@ class _AddNoteBottonsheetState extends State<AddNoteBottonsheet> {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => Addnodecubit(),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 10),
-        child: BlocConsumer<Addnodecubit, AddNodeCubitStates>(
-          listener: (context, state) {
-            if (state is AddNodeFail) {
-              print('Failing ${state.message}');
-            }
-            if (state is AddNodeLoading) {
-              isloading = true;
-              setState(() {});
-            }
-            if (state is AddNodeSuccess) {
-              Navigator.pop(context);
-            }
-          },
-          builder: (context, state) {
-            return AbsorbPointer(
-              absorbing: state is AddNodeLoading ? true : false,
-              child: SingleChildScrollView(child: Customform())
-            );
-          },
-        ),
+      child: BlocConsumer<Addnodecubit, AddNodeCubitStates>(
+        listener: (context, state) {
+          if (state is AddNodeFail) {
+            print('Failing ${state.message}');
+          }
+          if (state is AddNodeLoading) {
+            isloading = true;
+            setState(() {});
+          }
+          if (state is AddNodeSuccess) {
+            Navigator.pop(context);
+          }
+        },
+        builder: (context, state) {
+          return AbsorbPointer(
+            absorbing: state is AddNodeLoading ? true : false,
+            child: Padding(
+              padding:  EdgeInsets.only(left: 10,right: 10,
+               bottom: MediaQuery.of(context).viewInsets.bottom,
+              ),
+              child: SingleChildScrollView(child: Customform()),
+            )
+          );
+        },
       ),
     );
   }
